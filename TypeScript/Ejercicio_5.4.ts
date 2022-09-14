@@ -1,11 +1,11 @@
-abstract class Animal {
+abstract class Animal_ {
     constructor(private name: string) { }
     move(meters: number): void {
         console.log(`${this.name} se movio ${meters}m.`);
     }
 }
 
-class Snake extends Animal {
+class Snake extends Animal_ {
     move(meters: number = 5): void {
         console.log('Deslizandose...');
         // debe invocar al metodo `move` del padre, con un deslizamiento predeterminado
@@ -14,7 +14,7 @@ class Snake extends Animal {
     }
 }
 
-class Pony extends Animal{
+class Pony extends Animal_ {
     move(meters: number = 60): void {
         console.log('Galopando...');
         // debe invocar al metodo `move` del padre con un galope predeterminado
