@@ -1,0 +1,10 @@
+.tags {
+    display: inline-block;
+    text-align: right;
+    margin-right: 1em;
+    font-weight: bold;
+}
+
+.values {
+    display: inline-block;
+}
