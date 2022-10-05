@@ -1,0 +1,52 @@
+<div>
+  <form #eventForm="ngForm" (ngSubmit)="saveEvent()">
+    <div class="form-group">
+      <label for="event-name">Nombre del evento:</label>
+      <input id="event-name" type="text" name="name" [(ngModel)]="event.name" #name=ngModel required/>
+      <div class="error" *ngIf="name.invalid && name.touched">
+        Campo requerido
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="date">Fecha: </label>
+      <input id="date" type="text" name="date" [(ngModel)]="event.date" #date=ngModel required validateEventDate/>
+      <div class="error" *ngIf="date.invalid && date.touched">
+        Campo requerido
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="time">Hora: </label>
+      <input id="time" type="text" name="time" [(ngModel)]="event.time" #time=ngModel required/>
+      <div class="error" *ngIf="time.invalid && time.touched">
+        Campo requerido
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address">Dirección: </label>
+      <input id="address" type="text" name="address" [(ngModel)]="event.location.address" #address=ngModel required/>
+      <div class="error" *ngIf="address.invalid && address.touched">
+        Campo requerido
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="city">Ciudad: </label>
+      <input id="city" type="text" name="city" [(ngModel)]="event.location.city" #city=ngModel required/>
+      <div class="error" *ngIf="city.invalid && city.touched">
+        Campo requerido
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="country">Pais: </label>
+      <input id="country" type="text" name="country" [(ngModel)]="event.location.country" #country=ngModel required pattern="[A-Z]{2}"/>
+      <div class="error" *ngIf="country.hasError('required') && country.touched">
+        Campo requerido
+      </div>
+      <div class="error" *ngIf="country.hasError('pattern') && country.touched">
+        Debe constar de dos letras mayúsculas
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="eventForm.invalid">Guardar</button>
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+  </form>
+</div>

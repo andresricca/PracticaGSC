@@ -1,0 +1,19 @@
+form {
+    margin-top: 10px;
+}                                                  
+
+label {
+    display: block;
+}                                                   
+
+.form-group {
+    margin-top: 5px;
+}
+ 
+.error {
+    color: red;
+}
+
+.form-group input.ng-invalid.ng-touched {
+    background-color: yellow;
+}
