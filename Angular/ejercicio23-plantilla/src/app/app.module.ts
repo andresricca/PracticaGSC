@@ -7,12 +7,14 @@ import { EventsListComponent } from './events-list/events-list.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { dateValidatorDirective } from './date.validator';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventsListComponent,
     CreateEventComponent,
+    dateValidatorDirective
   ],
   imports: [
     BrowserModule,

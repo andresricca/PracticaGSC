@@ -9,9 +9,12 @@
     </div>
     <div class="form-group">
       <label for="date">Fecha: </label>
-      <input id="date" type="text" name="date" [(ngModel)]="event.date" #date=ngModel required validateEventDate/>
-      <div class="error" *ngIf="date.invalid && date.touched">
+      <input id="date" type="text" name="date" [(ngModel)]="event.date" #date=ngModel required dateValidator/>
+      <div class="error" *ngIf="date.errors?.['required'] && date.touched">
         Campo requerido
+      </div>
+      <div class="error" *ngIf="date.errors?.['validDate'] && date.touched">
+        {{ date.errors?.['message'] }}
       </div>
     </div>
     <div class="form-group">
@@ -38,10 +41,10 @@
     <div class="form-group">
       <label for="country">Pais: </label>
       <input id="country" type="text" name="country" [(ngModel)]="event.location.country" #country=ngModel required pattern="[A-Z]{2}"/>
-      <div class="error" *ngIf="country.hasError('required') && country.touched">
+      <div class="error" *ngIf="country.errors?.['required'] && country.touched">
         Campo requerido
       </div>
-      <div class="error" *ngIf="country.hasError('pattern') && country.touched">
+      <div class="error" *ngIf="country.errors?.['pattern'] && country.touched">
         Debe constar de dos letras mayúsculas
       </div>
     </div>
